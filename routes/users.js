@@ -35,14 +35,14 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   return knex('Users').where({id: req.params.id}).update(req.body).returning('id')
   .then(Users => {
-      res.send(Users)
+      res.send('Update Succesfully!')
   })
 })
 
 router.delete('/:id', (req, res) => {
   return knex('Users').where({id: req.params.id}).delete()
   .then(Users => {
-      res.send(Users)
+      res.send('Delete Succesfully!')
   })
 })
 

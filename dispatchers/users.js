@@ -7,8 +7,8 @@ module.exports = {
 Users: { 
     getAllUsers: function() {
         return knex('Users')
-    //.select('*')
-        .then(res => Nesthydrationjs.nest(res, user_definition))
+    .select('*')
+    .then(res => Nesthydrationjs.nest(res, user_definition))
         .then(res => {
         let succesResponseWithData = (response, message, status) => ({
             name: "Success",
@@ -24,7 +24,7 @@ Users: {
         return knex('Users').where('id', id).first()
     },
     postNewUser: function(User) {
-        return knex('Users').insert(User).returning('*')
+        return knex('Users').insert(User).returning('Users')
     }
     }
 }
